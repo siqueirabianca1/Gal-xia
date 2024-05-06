@@ -1,0 +1,82 @@
+
+
+
+body {
+    margin: 0;/*Define a área da margem dos quatro cantos do elemento*/
+    height: 100vh;/*Altura do elemento*/
+    display: flex;/*define se um elemento é tratado como um bloco ou elemento inline*/
+    align-items: center;/*alinhamento padrão*/
+    justify-content: center;/*define como o navegador distribui o espaço entre e ao redor dos itens*/
+    background-color: black; /*plano de fundo na cor preta */
+    overflow: hidden;/*especifica quando o conteúdo de um elemento de nível de bloco deve ser cortado*/
+}
+
+.container {
+    font-size: 10px;/* tamanho padrão para texto*/
+    width: 40em;/*largura de um elemento.*/
+    height: 40em;/*Altura do elemento*/
+    position: relative; /*está posicionado em relação à sua posição normal (fixa)*/
+}
+.sun {
+    position: absolute; /*Posição fixa do elemento*/
+    top: 15em;/*Posição vertical do elemento*/
+    left: 15em; /* é possível definir a posição horizontal do elemento em relação a sua borda esquerda.*/
+    width: 10em;/*largura de um elemento.*/
+    height: 10em;/*Altura do elemento*/
+    background-color: yellow; /*Plano de fundo na cor amarela*/
+    border-radius: 50%; /*arredonda os cantos da borda externa de um elemento.*/
+    box-shadow: 0 0 3em white; /*Efeito de sombra em torno dop sol*/
+}
+
+.earth,
+.moon {
+    position: absolute; /*Posição fixa do elemento*/
+    border-style: solid; /*define o estilo das quatro bordas de um elemento*/
+    border-color: white transparent transparent transparent; /*define a cor da borda de um elemento*/
+    border-width: 0.1em 0.1em 0 0; /*efine a largura da borda de um elemento.*/
+    border-radius: 50%; /*arredonda os cantos da borda externa de um elemento.*/
+}
+.earth {
+    top: 5em;/*Posição vertical do elemento*/
+    left: 5em; /* é possível definir a posição horizontal do elemento em relação a sua borda esquerda.*/
+    width: 30em;/*largura de um elemento.*/
+    height: 30em;/*Altura do elemento*/
+    animation: orbit 36.5s linear infinite;  /*Movimentação do círculo que representa a terra*/
+    
+}
+.moon {
+    top: 0;/*Posição vertical do elemento*/
+    right: 0;/*posição horizontal de um elemento posicionado.*/
+    width: 8em;/*largura de um elemento.*/
+    height: 8em;/*Altura do elemento*/
+    animation: orbit 2.7s linear infinite; /*Movimentação do círculo que representa a lua*/
+}
+
+.earth::before,
+.moon::before {
+    content: "";/* inserir o conteúdo gerado .*/
+    position: absolute;/*Posição fixa do elemento*/
+    border-radius: 50%; /*arredonda os cantos da borda externa de um elemento.*/
+}
+
+.earth::before {
+    top: 2.8em;/*posição vertical de um elemento*/
+    right: 2.8em;/*posição horizontal de um elemento posicionado.*/
+    width: 3em;/*largura de um elemento.*/
+    height: 3em;/*Altura do elemento*/
+    background-color: aqua; /*Plano de fundo na cor aAzul*/
+}
+
+.moon::before {
+    top: 0.8em;/*posição vertical de um elemento*/
+    right: 0.2em; /*posição horizontal de um elemento posicionado.*/
+    width: 1.2em;/*largura de um elemento.*/
+    height: 1.2em;/*Altura do elemento*/
+    background-color: silver; /*/*Plano de fundo na cor abranca*/
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);/*Movimento do elemento*/
+    }
+}
